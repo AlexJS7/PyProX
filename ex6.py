@@ -1,16 +1,23 @@
 # Exercise 6 - Ordinal Suffix
 
-def ordinal_suffix(n):
-    str_num = str(n)
-    last_str_num = str_num[-1]
-    if (last_str_num == '1' and n != 11):
-        return str_num + 'st'
-    if (last_str_num == '2' and n != 12):
-        return str_num + 'nd'
-    if (last_str_num == '3' and n != 13):
-        return str_num + 'rd'
+def get_second_last_str_num(numeric_str):
+    if (len(numeric_str)) == 1:
+        return None
 
-    return str_num + 'th'
+    return numeric_str[-2]
+
+
+def ordinal_suffix(n):
+    numeric_str = str(n)
+    last_str_num = numeric_str[-1]
+    if (last_str_num == '1' and get_second_last_str_num(numeric_str) != '1'):
+        return numeric_str + 'st'
+    if (last_str_num == '2' and get_second_last_str_num(numeric_str) != '1'):
+        return numeric_str + 'nd'
+    if (last_str_num == '3' and get_second_last_str_num(numeric_str) != '1'):
+        return numeric_str + 'rd'
+
+    return numeric_str + 'th'
 
 
 assert ordinal_suffix(0) == '0th'
@@ -115,3 +122,9 @@ assert ordinal_suffix(98) == '98th'
 assert ordinal_suffix(99) == '99th'
 assert ordinal_suffix(100) == '100th'
 assert ordinal_suffix(101) == '101st'
+assert ordinal_suffix(111) == '111th'
+assert ordinal_suffix(112) == '112th'
+assert ordinal_suffix(113) == '113th'
+assert ordinal_suffix(1111) == '1111th'
+assert ordinal_suffix(1112) == '1112th'
+assert ordinal_suffix(1113) == '1113th'
