@@ -1,23 +1,19 @@
 # Exercise 6 - Ordinal Suffix
 
-def get_second_last_str_num(numeric_str):
-    if (len(numeric_str)) == 1:
-        return None
-
-    return numeric_str[-2]
-
-
 def ordinal_suffix(n):
-    numeric_str = str(n)
-    last_str_num = numeric_str[-1]
-    if (last_str_num == '1' and get_second_last_str_num(numeric_str) != '1'):
-        return numeric_str + 'st'
-    if (last_str_num == '2' and get_second_last_str_num(numeric_str) != '1'):
-        return numeric_str + 'nd'
-    if (last_str_num == '3' and get_second_last_str_num(numeric_str) != '1'):
-        return numeric_str + 'rd'
+    num_str = str(n)
+    last_digit_str = num_str[-1]
 
-    return numeric_str + 'th'
+    if (num_str[-2:] in ('11', '12', '13')):
+        return num_str + 'th'
+    if (last_digit_str == '1'):
+        return num_str + 'st'
+    if (last_digit_str == '2'):
+        return num_str + 'nd'
+    if (last_digit_str == '3'):
+        return num_str + 'rd'
+
+    return num_str + 'th'
 
 
 assert ordinal_suffix(0) == '0th'
