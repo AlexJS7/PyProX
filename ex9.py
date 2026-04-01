@@ -11,10 +11,10 @@ def get_chess_square_color(col, row):
     if not (1 <= col <= 8) or not (1 <= row <= 8):
         return ''
 
-    if row % 2 == 0:
-        return 'white' if col % 2 == 0 else 'black'
+    if col % 2 == row % 2:
+        return 'white'
     else:
-        return 'black' if col % 2 == 0 else 'white'
+        return 'black'
 
 
 assert get_chess_square_color(0, 8) == ''
