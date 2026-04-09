@@ -23,6 +23,7 @@ def get_smallest_or_biggest(numbers, is_smallest=True):
     for i, n in enumerate(numbers):
         if i == 0:
             continue
+
         if (is_smallest and n < result) or (not is_smallest and n > result):
             result = n
 
