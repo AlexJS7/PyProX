@@ -28,12 +28,7 @@ def mode(numbers: list[float | int]) -> float | int | None:
         else:
             num_count_mapping[n] = 1
 
-        if not mode_value:
-            mode_value = n
-            mode_value_count = 1
-        elif mode_value == n and num_count_mapping[n] != mode_value_count:
-            mode_value_count = num_count_mapping[n]
-        elif mode_value != n and num_count_mapping[n] > mode_value_count:
+        if num_count_mapping[n] > mode_value_count:
             mode_value = n
             mode_value_count = num_count_mapping[n]
 
