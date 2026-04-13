@@ -18,6 +18,8 @@ def mode(numbers: list[float | int]) -> float | int | None:
     if len(numbers) == 1:
         return numbers[0]
 
+    mode_value = None
+    mode_value_count = 0
     num_count_mapping = {}
 
     for n in numbers:
@@ -26,11 +28,16 @@ def mode(numbers: list[float | int]) -> float | int | None:
         else:
             num_count_mapping[n] = 1
 
-    return sorted(
-        num_count_mapping.items(),
-        key=lambda a: a[1],
-        reverse=True
-    )[0][0]
+        if not mode_value:
+            mode_value = n
+            mode_value_count = 1
+        elif mode_value == n and num_count_mapping[n] != mode_value_count:
+            mode_value_count = num_count_mapping[n]
+        elif mode_value != n and num_count_mapping[n] > mode_value_count:
+            mode_value = n
+            mode_value_count = num_count_mapping[n]
+
+    return mode_value
 
 
 assert mode([]) == None
