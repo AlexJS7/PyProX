@@ -18,14 +18,12 @@ SPECIAL = '~!@#$%^&*()_+'
 def generate_password(length: int) -> str:
     """
     Generates random password.
-    ___________
+
     Parameters:
-        length (int):
-            Number of characters of generated password. 
-    ___________
+        length (int): Number of characters of generated password. 
+
     Returns:
-        out (str):
-            Randomly generated password which includes at least
+        str: Randomly generated password which includes at least
                 - one lowercase letter
                 - one uppercase letter
                 - one number
