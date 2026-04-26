@@ -16,8 +16,8 @@ def rps_winner(player1: str, player2: str) -> str:
     Determine the winner of a rock-paper-scissors round.
 
     Parameters:
-        player1: Move of player one ('rock', 'paper', or 'scissors').
-        player2: Move of player two ('rock', 'paper', or 'scissors').
+        player1 (str): Move of player one ('rock', 'paper', or 'scissors').
+        player2 (str): Move of player two ('rock', 'paper', or 'scissors').
 
     Returns:
         str: 'player one' | 'player two' | 'tie'.
