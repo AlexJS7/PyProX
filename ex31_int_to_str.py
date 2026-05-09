@@ -18,7 +18,7 @@ def convert_int_to_str(integer_num: int) -> str:
     """
 
     if not isinstance(integer_num, int):
-        raise TypeError("integer_num must be an integer")
+        raise TypeError('integer_num must be an integer')
 
     if integer_num == 0:
         return '0'
