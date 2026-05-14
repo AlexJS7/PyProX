@@ -5,12 +5,10 @@ import random
 
 def get_title_case(text: str) -> str:
     """
-    Convert every word in text to title case where every word
-    in the string begins with an uppercase letter: (e.g. 'hola!' -> 'Hola!').
+    Convert text to title case where each word starts with
+    an uppercase letter and remaining letters are lowercase ('hOlA!' -> 'Hola!').
 
-    The remaining letters are lowercase.
-
-    Non-letter characters (not only spaces,) separate words in the string,
+    Non-letter characters (not only spaces) separate words in the string,
     so 'Hello5World' and 'Hello@World' also have two words.
 
     Examples:
@@ -27,7 +25,7 @@ def get_title_case(text: str) -> str:
         text (str): String to convert to title case.
 
     Returns:
-        str: String converted to title case.
+        str: The title-cased string.
 
     Raises:
         TypeError: If text is not a str.
@@ -36,9 +34,21 @@ def get_title_case(text: str) -> str:
     if not isinstance(text, str):
         raise TypeError(f'text must be a str, got {type(text).__name__}')
 
-    # todo
+    if text == '':
+        return ''
 
-    return ''
+    chars = []
+    new_word = True
+
+    for char in text:
+        if char.isalpha():
+            chars.append(char.upper() if new_word else char.lower())
+            new_word = False
+        else:
+            chars.append(char)
+            new_word = True
+
+    return ''.join(chars)
 
 
 assert get_title_case('Hello, world!') == 'Hello, World!'
