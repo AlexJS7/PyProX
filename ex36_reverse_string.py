@@ -1,4 +1,4 @@
-# Exercise 35 - Reverse string
+# Exercise 36 - Reverse string
 
 """
     Strings are immutable in the Python language, meaning you can't modify
