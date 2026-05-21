@@ -19,30 +19,31 @@ import random
 
 def shuffle(values: list) -> None:
     """
-    Sets each value in the list to a random index,
-    as a result shuffling the values list mutating it in place.
+    Shuffle a list in place using the Fisher-Yates algorithm.
 
-    The exercise implements a fn identical to Python's random.shuffle().
+    Note:
+        random.shuffle() is forbidden to use.
 
     Parameters:
-        values (list): The list of values to shuffle.
-
-    Returns:
-        None: 
-            The function changes the values list in place.
+        values (list): List to shuffle.
 
     Raises:
         TypeError: If values is not a list.
     """
 
-    if not isinstance(list):
+    if not isinstance(values, list):
         raise TypeError(f'values must be a list, got {type(values).__name__}')
 
     if not values:
-        return values
+        return None
 
-    # todo: implement shuffle fn
-    return values
+    # The unbiased Fisher–Yates shuffle algorithm
+    # guarantees every permutation is equally likely.
+    for idx in range(len(values) - 1, 0, -1):
+        rnd_idx = random.randint(0, idx)
+        values[rnd_idx], values[idx] = values[idx], values[rnd_idx]
+
+    return None
 
 
 random.seed(42)
