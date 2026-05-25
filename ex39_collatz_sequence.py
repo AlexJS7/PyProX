@@ -1,4 +1,4 @@
-# Exercise 38 - Random Shuffle
+# Exercise 39 - Collatz Sequence
 
 """
     The Collatz Sequence also called the 3n + 1 problem,
@@ -38,7 +38,7 @@ def collatz(n: int) -> list[int]:
 
     Returns:
         list[int]:
-            A list containing the Collatz sequence starting from n..
+            A list containing the Collatz sequence starting from n.
 
     Raises:
         TypeError: If n is not an int.
