@@ -43,7 +43,7 @@ Across the exercises, I practiced:
 
 Most solutions are verified using simple assertions provided in the book, for example:
 
-```
+```py
 assert bubble_sort([2, 1, 3]) == [1, 2, 3]
 ```
 
